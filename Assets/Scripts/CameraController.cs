@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    // smooth camera follown
-
+    // Declaration pour acceder au composant d'unity
     private Transform target;
     private Vector3 offset;
+
+    // Declaration de variable
     public float smoothSpeed = 0.15f;
 
     void Start()

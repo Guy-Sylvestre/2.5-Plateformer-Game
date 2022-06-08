@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
+    // Declaration de variable
     public float rotateSpeed = 150f;
     
 

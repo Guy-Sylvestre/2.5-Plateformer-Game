@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // Declaration pour acceder au composant d'unity
     public CharacterController controller;
     public Vector3 direction;
-    public float speed;
-    public float jumpForce = 10f;
-    public float gravity = -20f;
     public Transform groundCheck;
     public LayerMask groundLayer;
-    public bool ableToMakeADoubleJump = true;
     public Animator animator;
     public Transform model;
+
+    // Declaration de variable
+    public float speed;
+    public float jumpForce = 10f;
+    public bool ableToMakeADoubleJump = true;
+    public float gravity = -20f;
     
 
     void Update()
     {
+        // Recuperation de la saisie horizontal (Gauche, droite)
         float hInput = Input.GetAxis("Horizontal");
         direction.x = hInput * speed;
 
@@ -25,6 +29,7 @@ public class PlayerController : MonoBehaviour
         float convertAbsolueValue = Mathf.Abs(hInput);
         animator.SetFloat("Speed", convertAbsolueValue);
 
+        // Verifier si le joueur est au sol
         bool isGround = Physics.CheckSphere(groundCheck.position, 0.2f,groundLayer);
         animator.SetBool("isGrounded", isGround);
 

@@ -14,10 +14,7 @@ public class PlayerController : MonoBehaviour
     public bool ableToMakeADoubleJump = true;
     public Animator animator;
     public Transform model;
-    void Start()
-    {
-        
-    }
+    
 
     void Update()
     {
@@ -37,17 +34,27 @@ public class PlayerController : MonoBehaviour
             ableToMakeADoubleJump = true;
             if (Input.GetButtonDown("Jump"))
             {
-                direction.y = jumpForce;
+                // Simple Jump
+                SimpleJump();
+            }
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                animator.SetTrigger("fireBallAttack");
             }
         }else
         {
-            direction.y += gravity * Time.deltaTime;
+            direction.y += gravity * Time.deltaTime; //Add Gravity
             if (ableToMakeADoubleJump && Input.GetButtonDown("Jump"))
             {
-                animator.SetTrigger("doubleJump");
-                direction.y = jumpForce;
-                ableToMakeADoubleJump = false;
+                // Double Jump
+                DoubleJump();
             }
+        }
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fireball"))
+        {
+            return;
         }
 
         // Fliper la direction du personnage
@@ -57,6 +64,22 @@ public class PlayerController : MonoBehaviour
             model.rotation = newRotation;
         }
 
+        // Move the player using the charactere controller
         controller.Move(direction * Time.deltaTime);
+    }
+
+
+    private void DoubleJump()
+    {
+        // Double Jump
+        animator.SetTrigger("doubleJump");
+        direction.y = jumpForce;
+        ableToMakeADoubleJump = false;
+    }
+
+    private void SimpleJump()
+    {
+        // Simple Jump
+        direction.y = jumpForce;
     }
 }

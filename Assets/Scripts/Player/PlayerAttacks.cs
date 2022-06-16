@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttacks : MonoBehaviour
 {
-    // Declaration pour acceder au composant d'unity
+    // Declaration d'intance pour acceder au composant d'unity
     public GameObject fireBall;
     public Transform fireBallPoint;
 

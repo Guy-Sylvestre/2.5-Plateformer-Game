@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Declaration pour acceder au composant d'unity
+    // Declaration d'intance pour acceder au composant d'unity
     public CharacterController controller;
     public Vector3 direction;
     public Transform groundCheck;

@@ -9365,10 +9365,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06960988e7a365fc58b38a7b25d0ad97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseRange: 5
-  distancePE: 6
-  speed: 3
-  attackRange: 2
+  health: 0
+  maxHealth: 100
   animator: {fileID: 1728407255}
 --- !u!1001 &1645168706
 PrefabInstance:

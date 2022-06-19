@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Declaration de variable
+    // Declaration d'attribut
     
-    private float chaseRange = 8;
+    private float chaseRange = 10;
     private float speed;
     private float attackRange = 2;
     private float distance;
+    public int health;
+    public int maxHealth;
 
     // Declaration d'intance pour acceder au composant d'unity
     private Transform target;
@@ -18,12 +20,13 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        health = maxHealth;
     }
 
     void Update()
     {
         distance = Vector3.Distance(transform.position, target.position);
-        Debug.Log("----------------------###############" + distance);
+        // Debug.Log("----------------------###############" + distance);
 
        if (distance < chaseRange)
         {
@@ -76,6 +79,28 @@ public class Enemy : MonoBehaviour
                 transform.Translate(-transform.right * speed * Time.deltaTime);
                 transform.rotation = Quaternion.identity;
             }
+    }
+
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        
+        if (health < 0)
+        {
+            Die();
+        }
+    }
+
+
+    public void Die()
+    {
+        // Play a die animation
+        animator.SetTrigger("isDead");
+
+        // disable the script and the collider
+        GetComponent<CapsuleCollider>().enabled = false;
+        this.enabled = false;
     }
 
  

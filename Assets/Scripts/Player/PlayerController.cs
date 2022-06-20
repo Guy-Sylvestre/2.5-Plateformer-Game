@@ -21,6 +21,15 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (PlayerManager.gameOver)
+        {
+            // Play death animation
+            animator.SetTrigger("die");
+
+            // Disable the script
+            this.enabled = false;
+        }
+
         // Recuperation de la saisie horizontal (Gauche, droite)
         float hInput = Input.GetAxis("Horizontal");
         direction.x = hInput * speed;

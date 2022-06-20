@@ -25,6 +25,14 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+
+        if (PlayerManager.gameOver)
+        {
+            // Stop the animation of the enemy when the player dies
+            animator.enabled = false;
+            this.enabled = false;
+        }
+
         distance = Vector3.Distance(transform.position, target.position);
         // Debug.Log("----------------------###############" + distance);
 

@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     public static int numberOfCOins;
     public static int currentHealth = 100;
     public static bool gameOver;
+    public GameObject gameOverPanel;
 
     public Slider healthBar;
 
@@ -35,6 +36,8 @@ public class PlayerManager : MonoBehaviour
         if (currentHealth < 0)
         {
             gameOver = true;
+            gameOverPanel.SetActive(true);
+            currentHealth = 100;
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Declaration d'intance pour acceder au composant d'unity
+    // Declaration d'objet
     public CharacterController controller;
     public Vector3 direction;
     public Transform groundCheck;
@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public Transform model;
 
-    // Declaration de variable
+    // Declaration d'attribut
     public float speed;
     public float jumpForce = 10f;
     public bool ableToMakeADoubleJump = true;
@@ -85,6 +85,13 @@ public class PlayerController : MonoBehaviour
         if (transform.position.z != 0)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+        }
+
+        // Win lebel
+        if (PlayerManager.winLevel)
+        {
+            animator.SetTrigger("win");
+            this.enabled = false;
         }
     }
 

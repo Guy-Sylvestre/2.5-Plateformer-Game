@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerAttacks : MonoBehaviour
 {
-    // Declaration d'intance pour acceder au composant d'unity
+    // Declaration d'objet
     public GameObject fireBall;
     public Transform fireBallPoint;
 
-    // Declaration de variable
+    // Declaration d'attribut
     public float fireBallSpeed = 600;
 
     public void FireBallAttack()

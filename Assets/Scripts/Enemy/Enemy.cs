@@ -5,7 +5,6 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     // Declaration d'attribut
-    
     private float chaseRange = 10;
     private float speed;
     private float attackRange = 2;
@@ -13,7 +12,7 @@ public class Enemy : MonoBehaviour
     public int health;
     public int maxHealth;
 
-    // Declaration d'intance pour acceder au composant d'unity
+    // Declaration d'objet
     private Transform target;
     public Animator animator;
 
@@ -108,6 +107,7 @@ public class Enemy : MonoBehaviour
 
         // disable the script and the collider
         GetComponent<CapsuleCollider>().enabled = false;
+        Destroy(gameObject, 3);
         this.enabled = false;
     }
 

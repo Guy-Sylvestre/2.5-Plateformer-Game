@@ -1,0 +1,13 @@
+Unity Editor version:    2021.3.4f1 (cb45f9cae8b7)
+Branch:                  2021.3/staging
+Build type:              Release
+Batch mode:              YES
+System name:             Linux
+Distro version:          #58~20.04.1-Ubuntu SMP Tue Jun 14 11:29:12 UTC 2022
+Kernel version:          5.13.0-51-generic
+Architecture:            x86_64
+Available memory:        7848 MB
+Using pre-set license
+Pro License: YES
+
+(Unity:21591): Gdk-CRITICAL **: 10:37:59.781: gdk_window_get_cursor: assertion 'GDK_IS_WINDOW (window)' failed

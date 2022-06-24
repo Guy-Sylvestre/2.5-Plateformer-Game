@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class FireBall : MonoBehaviour
 {
-    // Declaration d'intance pour acceder au composant d'unity
+    // Declaration d'objet
     public GameObject damageEffet;
 
-    // Declaration d'attribut de la classe
+    // Declaration d'attribut
     public int damageAmount = 40;
 
     private void OnTriggerEnter(Collider other)
